@@ -61,10 +61,11 @@
       <a href="#">
         <img v-bind:src="'/static/home/kasikorn-bank.png'" class="logo-kasikorn-bank">
       </a>
+      <a href="#">
         <img v-bind:src="'/static/home/krungsri-bank.png'" class="logo-krungsri-bank">
       </a>
       <a href="#">
-        <img v-bind:src="'/static/home/krungthai-bank.jpg'"class="logo-krungthai-bank">
+        <img v-bind:src="'/static/home/krungthai-bank.jpg'" Sclass="logo-krungthai-bank">
       </a>
       <a href="#">
         <img v-bind:src="'/static/home/paypal.png'" class="logo-paypal">

@@ -1,5 +1,5 @@
 <template>
-    <div height="1080">
+    <div>
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">

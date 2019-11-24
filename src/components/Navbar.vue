@@ -3,7 +3,7 @@
         <div class="nav-wrapper blue">
             <div class="container">
                 <a href="#/">
-                 <img :width="40" v-bind:src="'/static/favicon.png'" class="test">
+                 <img :width="40" v-bind:src="'/static/favicon.png'">
                 </a>
                 <ul class="right">
                     <li><a href="#/search"><i class="material-icons left">search</i>Search</a></li>
@@ -50,12 +50,5 @@ export default {
 <style scoped>
 .email {
   padding-right: 10px;
-}
-.test {
-    padding-top: 10px;
-}
-
-.testdasfasf {
-    color: #00bfff
 }
 </style>

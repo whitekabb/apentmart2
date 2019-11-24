@@ -24,6 +24,6 @@ export default {
 
 <style>
 .test-min-height{
- min-height: 459px;
+ min-height: 659px;
 }
 </style>
