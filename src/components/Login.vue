@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div height="1080">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">
@@ -38,7 +38,7 @@ export default {
   methods: {
     login: function(e) {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
-            alert(`You are logged in as ${user.email}`);
+            alert(`You are logged in as ${user.user.email}`);
             this.$router.go({ path: this.$router.path });
           },
           err => {
