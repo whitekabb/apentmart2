@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
+import Home from '@/components/Home'
 import NewEmployee from '@/components/NewEmployee'
 import ViewEmployee from '@/components/ViewEmployee'
 import EditEmployee from '@/components/EditEmployee'
@@ -18,6 +19,11 @@ let router = new Router({
       component: Dashboard
     },
     {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login,
@@ -32,7 +38,7 @@ let router = new Router({
         requiresGuest: true
       }
     },
-    
+
     {
       path: '/new',
       name: 'new-employee',
