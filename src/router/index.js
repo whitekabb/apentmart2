@@ -8,20 +8,32 @@ import EditEmployee from '@/components/EditEmployee'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import firebase from 'firebase'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
 let router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/login',
@@ -30,7 +42,8 @@ let router = new Router({
       meta: {
         requiresGuest: true
       }
-    },{
+    },
+    {
       path: '/register',
       name: 'register',
       component: Register,
@@ -88,7 +101,7 @@ router.beforeEach((to, from, next) => {
     if (firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/',
+        path: '/home',
         query: {
           redirect: to.fullPath
         }

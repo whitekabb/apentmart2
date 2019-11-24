@@ -2,12 +2,13 @@
     <nav>
         <div class="nav-wrapper blue">
             <div class="container">
-                <a href="/">
+                <a href="#/">
                  <img :width="40" v-bind:src="'/static/favicon.png'" class="test">
                 </a>
                 <ul class="right">
+                    <li><a href="#/search"><i class="material-icons left">search</i>Search</a></li>
                     <li v-if="isLoggedIn"><span class="email bold white-text">{{currentUser}}</span></li>
-                    <li ><router-link to="/">Dashboard</router-link></li>
+                    <li ><router-link to="/dashboard">Dashboard</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
                     <li v-if="isLoggedIn"><button v-on:click="logout" class="btn grey">Log out</button></li>
