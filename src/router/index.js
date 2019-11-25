@@ -9,6 +9,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import firebase from 'firebase'
 import Search from '@/components/Search'
+import ApartmentInfo from '@/components/ApartmentInfo'
 
 Vue.use(Router)
 
@@ -32,7 +33,15 @@ let router = new Router({
       name: 'search',
       component: Search,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/apartmentinfo',
+      name: 'apartmentinfo',
+      component: ApartmentInfo,
+      meta: {
+        requiresAuth: false
       }
     },
     {
