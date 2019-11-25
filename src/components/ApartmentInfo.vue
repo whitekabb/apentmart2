@@ -33,7 +33,7 @@
         }
     },
     beforeRouteEnter (to, from, next) {
-      db.collection('test').where('ap_id', '==', to.params.ap_id).get().then((querySnapshot) => {
+      db.collection('Apartment').where('ap_id', '==', to.params.ap_id).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           console.log(doc)
           next(vm => {
@@ -53,7 +53,7 @@
     },
     methods: {
       fetchData () {
-        db.collection('test').where('ap_id', '==', this.$route.params.ap_id).get().then((querySnapshot) => {
+        db.collection('Apartment').where('ap_id', '==', this.$route.params.ap_id).get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             this.id= doc.data().id,
             this.ap_id= doc.data().ap_id,

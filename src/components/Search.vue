@@ -41,41 +41,7 @@ export default {
       firebaseData: [],
       firebaseDB: [],
       loading: true,
-      search: '',
-      stacks: [
-      {
-        checked: false,
-        value: 'language'
-      },
-      {
-        checked: false,
-        value: 'framework'
-      },
-      {
-        checked: false,
-        value: 'frontend'
-        },
-      {
-        checked: false,
-        value: 'backend'
-      },
-      {
-        checked: false,
-        value: 'mobile'
-      },
-      {
-        checked: false,
-        value: 'web'
-      },
-      {
-        checked: false,
-        value: 'hybrid'
-      },
-      {
-        checked: false,
-        value: 'database'
-      }
-      ]
+      search: ''
     };
   },
   methods: {
@@ -89,7 +55,7 @@ export default {
       }
     },
     setfirebaseData: function() {
-        db.collection('test').orderBy('id').get().then((querySnapshot) => {
+        db.collection('Apartment').orderBy('ap_id').get().then((querySnapshot) => {
         this.loading = false
         querySnapshot.forEach((doc) => {
           const data = {

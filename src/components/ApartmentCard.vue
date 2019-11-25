@@ -5,11 +5,6 @@
       <div class="card-body">
         <h5 class="card-title">{{ item.name | capitalize }} </h5>
       </div>
-      <!-- <div class="right">
-        <router-link v-bind:to="{ name: 'apartment-info', params: { id: item.ap_id }}" class="btn-floating btn-large blue">
-          <i class="material-icons">add</i>
-        </router-link>
-      </div> -->
     </div>
   </div>
 </template>
@@ -20,17 +15,6 @@ export default {
     return {
       name:'apartment-card',
     // list of tags to giving each stack a different color
-      tags: {
-        language: 'light',
-        framework: 'dark',
-        frontend: 'success',
-        backend: 'danger',
-        mobile: 'warning',
-        web: 'secondary',
-        hybrid: 'info',
-        database: 'danger'
-      },
-      image: ''
     };
   },
   filters: {

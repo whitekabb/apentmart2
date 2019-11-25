@@ -24,16 +24,25 @@
 
     <div class="rec-home-4">
 
-      <h1 class="text-ap-home text-name-ap-home-1">บ้านหมอกเมฆ</h1>
+      <!-- <h1 class="text-ap-home text-name-ap-home-1">V-Apartment</h1>
       <img class="ap-1" v-bind:src="'/static/home/ap-1.jpg'">
-      <h4 class="text-h4 text-detail-ap-1">บ้านหมอกเมฆ ห้องใหญ่มาก ฟรี Wifi&Fitness ห้องใหญ่มาก
+      <h4 class="text-h4 text-detail-ap-1">ห้องใหญ่มาก ฟรี Wifi&Fitness ห้องใหญ่มาก
         บนถนนรัชดาฯ ใกล้ MRT ห้วยขวาง ฟรี Wifi & Fitness
         Apartment สไตล์โมเดิร์น เพียง 10 นาทีจาก MRT ห้วยขวาง
       </h4>
-      <button type="submit" class="button button-ap-home-1"><h4 class="text-h4 text-button-ap-home">More Info</h4></button>
+      <button type="submit" class="button button-ap-home-1"><h4 class="text-h4 text-button-ap-home">More Info</h4></button> -->
+    <div class="container card-columns">
+      <div v-for="(item, index) in firebaseDB" :key="index">
+        <div v-if="index<3">
+        <router-link v-bind:to="{ name: 'apartment-info', params: { ap_id: item.ap_id }}">
+          <apartment-card :item="item"></apartment-card>
+          </router-link>
+      </div>
+      </div>
+    </div>
+<!-- 
 
-
-      <h1 class="text-ap-home text-name-ap-home-2">ศิริเพลส อพาร์ทเม้นท์</h1>
+      <h1 class="text-ap-home text-name-ap-home-2">AJ park apaerment</h1>
       <img class="ap-2" v-bind:src="'/static/home/ap-2.jpg'">
       <h4 class="text-h4 text-detail-ap-2">ห้องพักสะอาด กว้างขวาง สะดวกสบาย มีขนาดให้เลือกหลายแบบ มีที่จอดรถ
         ใกล้โรงพยาบาลสินแพทย์ ใกล้สี่แยกศรีอุดม เงียบสงบ เฟอร์นิเจอร์ครบ ห้องกว้างกว่า ใหม่ สะอาด มีรปภ.ดูแล บริการซักรีด
@@ -41,13 +50,13 @@
       <button type="submit" class="button button-ap-home-2"><h4 class="text-h4 text-button-ap-home">More Info</h4></button>
 
 
-      <h1 class="text-ap-home text-name-ap-home-3">บ้านเมฆหมอก</h1>
-      <img class="ap-3" v-bind:src="'/static/home/ap-1.jpg'">
-      <h4 class="text-h4 text-detail-ap-3">บ้านเมฆหมอก ห้องเล็กมาก Wifi & Fitness เสียเงินเพิ่ม
+      <h1 class="text-ap-home text-name-ap-home-3">BB cord Apartment</h1>
+      <img class="ap-3" v-bind:src="'/static/home/ap-3.jpg'">
+      <h4 class="text-h4 text-detail-ap-3">ห้องเล็กมาก Wifi & Fitness เสียเงินเพิ่ม
         บนถนนรัชดาฯ ใกล้ BTS ห้วยขวาง
         Apartment สไตล์โมเดิร์น เพียง 10 นาทีจาก BTS ห้วยขวาง
       </h4>
-      <button type="submit" class="button button-ap-home-3"><h4 class="text-h4 text-button-ap-home">More Info</h4></button>
+      <button type="submit" class="button button-ap-home-3"><h4 class="text-h4 text-button-ap-home">More Info</h4></button> -->
 
     </div>
 
@@ -80,6 +89,37 @@
 </template>
 
 <script>
+import ApartmentCard from './ApartmentCard';
+import db from './firebaseInit'
+export default{
+  name: 'home',
+  components: {
+    'apartment-card': ApartmentCard
+  },
+  data() {
+    return {
+      firebaseDB: [],
+      loading: true,
+    }
+  },
+  created () {
+      db.collection('Apartment').orderBy('ap_id').get().then((querySnapshot) => {
+        this.loading = false
+        querySnapshot.forEach((doc) => {
+          const data = {
+            id: doc.id,
+            ap_id: doc.data().ap_id,
+            image: doc.data().image,
+            name: doc.data().name,
+            location: doc.data().location,
+            price: doc.data().price,
+            tyAp: doc.data().tyAP
+          }
+          this.firebaseDB.push(data)
+        })
+      })
+    }
+}
 
 </script>
 
