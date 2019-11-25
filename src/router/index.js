@@ -10,11 +10,21 @@ import Register from '@/components/Register'
 import firebase from 'firebase'
 import Search from '@/components/Search'
 import ApartmentInfo from '@/components/ApartmentInfo'
+import ApManagement from '@/components/apManagement'
+
 
 Vue.use(Router)
 
 let router = new Router({
   routes: [
+    {
+      path: '/apManagement',
+      name: 'apManagement',
+      component: ApManagement,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: '/dashboard',
       name: 'dashboard',
