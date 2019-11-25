@@ -37,14 +37,6 @@ let router = new Router({
       }
     },
     {
-      path: '/apartmentinfo',
-      name: 'apartmentinfo',
-      component: ApartmentInfo,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
       path: '/login',
       name: 'login',
       component: Login,
@@ -81,6 +73,14 @@ let router = new Router({
       path: '/edit/:employee_id',
       name: 'edit-employee',
       component: EditEmployee,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/:id',
+      name: 'apartment-info',
+      component: ApartmentInfo,
       meta: {
         requiresAuth: true
       }

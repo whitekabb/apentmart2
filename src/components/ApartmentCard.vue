@@ -1,7 +1,8 @@
 <template>
   <div class="card p-3">
+      <router-link class="secondary-content" v-bind:to="{ name: 'apartment-info', params: { id: item.id }}">
     <div class="text-center">
-      <img class="img-fluid" v-bind:src="item.image" width="100" alt="Card image cap">
+      <img class="img-fluid" v-bind:src=image width="100" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ item.name | capitalize }} </h5>
       </div>
@@ -9,6 +10,7 @@
     <span v-for="(group, index) in item.stack" :key="index" :class="`badge badge-${tags[group]}`">{{ group }}</span>
       </div> -->
     </div>
+    </router-link>
   </div>
 </template>
 
@@ -26,8 +28,17 @@ export default {
         web: 'secondary',
         hybrid: 'info',
         database: 'danger'
-      }
+      },
+      image: ''
     };
+  },
+  methods: {
+    setpath: function(){
+        this.image = item.image
+    }
+  },
+  created() {
+      setpath()
   },
   filters: {
    // this filter will can be used to capitalize a word
