@@ -32,7 +32,7 @@
                                 <!-- <input type="password" id="owner" v-model="owner">
                                 <label for="password" class="black-text">Owner ()</label> -->
                             </div>
-                            <button v-on:click="saveUser();register();" class="btn btn-large grey lighten-4 black-text" type="submit">Register</button>
+                            <button v-on:click="register" class="btn btn-large grey lighten-4 black-text" type="submit">Register</button>
                         </form>
                     </div>
                 </div>
@@ -70,22 +70,30 @@ export default {
             alert(err.message);
           }
         );
-      e.preventDefault();
-    },
-    saveUser () {
       db.collection('user').add({
         email: this.email,
         name: this.name,
         owner: this.owner
       })
-      .then(docRef => {
-        console.log('Client added: ', docRef.id)
-        this.$router.push('/dashboard')
-      })
       .catch(error => {
         console.error('Error adding employee: ', error)
       })
-    }
+      e.preventDefault();
+    },
+    // saveUser () {
+    //   db.collection('user').add({
+    //     email: this.email,
+    //     name: this.name,
+    //     owner: this.owner
+    //   })
+    //   .then(docRef => {
+    //     console.log('Client added: ', docRef.id)
+    //     this.$router.push('/dashboard')
+    //   })
+    //   .catch(error => {
+    //     console.error('Error adding employee: ', error)
+    //   })
+    // }
   }
 };
 </script>
