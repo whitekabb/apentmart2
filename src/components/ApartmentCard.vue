@@ -2,7 +2,7 @@
   <div class="card p-3">
       <router-link class="secondary-content" v-bind:to="{ name: 'apartment-info', params: { id: item.id }}">
     <div class="text-center">
-      <img class="img-fluid" v-bind:src=image width="100" alt="Card image cap">
+      <img class="img-fluid" v-bind:src="item.image" width="300" alt="Card   image cap">
       <div class="card-body">
         <h5 class="card-title">{{ item.name | capitalize }} </h5>
       </div>
@@ -53,6 +53,6 @@ export default {
       required: true
     }
   }
-  
+
 };
 </script>
