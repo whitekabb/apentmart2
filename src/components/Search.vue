@@ -5,7 +5,7 @@
       <form v-on:submit="getfilteredData">
         <div class="form-row">
           <div class="col-12">
-            
+
             <input type="text" class="form-control" placeholder="Enter key word  ..." v-model="search" v-on:keyup="getfilteredData">
           </div>
         </div>
@@ -25,7 +25,7 @@
   </div>
 </template>
 <script>
-import ItemCard from './ItemCard';
+import ItemCard from './ApartmentCard';
 import data from '../data/data';
 import db from './firebaseInit'
 export default {
