@@ -1,16 +1,16 @@
 <template>
   <div class="card p-3">
-      <router-link class="secondary-content" v-bind:to="{ name: 'apartment-info', params: { id: item.id }}">
     <div class="text-center">
       <img class="img-fluid" v-bind:src="item.image" width="300" alt="Card   image cap">
       <div class="card-body">
         <h5 class="card-title">{{ item.name | capitalize }} </h5>
       </div>
-      <!-- <div>
-    <span v-for="(group, index) in item.stack" :key="index" :class="`badge badge-${tags[group]}`">{{ group }}</span>
-      </div> -->
+      <div class="right">
+        <router-link v-bind:to="{ name: 'apartment-info', params: { id: item.id }}" class="btn-floating btn-large blue">
+          <i class="material-icons">add</i>
+        </router-link>
+      </div>
     </div>
-    </router-link>
   </div>
 </template>
 
@@ -18,6 +18,7 @@
 export default {
   data() {
     return {
+      name:'apartment-card',
     // list of tags to giving each stack a different color
       tags: {
         language: 'light',
@@ -31,14 +32,6 @@ export default {
       },
       image: ''
     };
-  },
-  methods: {
-    setpath: function(){
-        this.image = item.image
-    }
-  },
-  created() {
-      setpath()
   },
   filters: {
    // this filter will can be used to capitalize a word

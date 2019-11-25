@@ -20,23 +20,28 @@
 <script>
   import db from './firebaseInit'
   export default {
-    name: 'view-employee',
+    name: 'apartment-info',
     data () {
       return {
-        employee_id: null,
+        id: null,
+        image: null,
         name: null,
-        dept: null,
-        position: null
-      }
+        location: null,
+        price: null,
+        tyAp: null
+        }
     },
     beforeRouteEnter (to, from, next) {
-      db.collection('apartment').where('id', '==', to.params.id).get().then((querySnapshot) => {
+      db.collection('test').where('id', '==', to.params.id).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+          console.log(doc)
           next(vm => {
-            vm.employee_id = doc.data().employee_id
-            vm.name = doc.data().name
-            vm.dept = doc.data().dept
-            vm.position = doc.data().position
+            vm.id= doc.data().id
+            vm.image= doc.data().image
+            vm.name= doc.data().name
+            vm.location= doc.data().location
+            vm.price= doc.data().price
+            vm.tyAp= doc.data().tyAP
           })
         })
       })
@@ -46,25 +51,18 @@
     },
     methods: {
       fetchData () {
-        db.collection('employees').where('employee_id', '==', this.$route.params.employee_id).get().then((querySnapshot) => {
+        db.collection('test').where('id', '==', this.$route.params.id).get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            this.employee_id = doc.data().employee_id
-            this.name = doc.data().name
-            this.dept = doc.data().dept
-            this.position = doc.data().position
+            this.id= doc.data().id,
+            this.image= doc.data().image,
+            this.name= doc.data().name,
+            this.location= doc.data().location,
+            this.price= doc.data().price,
+            this.tyAp= doc.data().tyAP
           })
         })
-      },
-      deleteEmployee () {
-        if(confirm ('Are you sure?')) {
-          db.collection('employees').where('employee_id', '==', this.$route.params.employee_id).get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-              doc.ref.delete();
-              this.$router.push('/')
-            })
-          })
-        }
       }
     }
   }
+
 </script>
