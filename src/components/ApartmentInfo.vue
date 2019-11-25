@@ -6,7 +6,7 @@
       </div>
       <div class="row">
         <div class="col s4">
-          <img v-bind:src="image" height="400px" >
+          <img v-bind:src="image" height="400px" width="550px" >
         </div>
         <div class="col s6">
           <span><h4>{{name}}</h4></span>
