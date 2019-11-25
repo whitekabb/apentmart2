@@ -101,7 +101,7 @@ let router = new Router({
       name: 'apartment-info',
       component: ApartmentInfo,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     }
   ]
