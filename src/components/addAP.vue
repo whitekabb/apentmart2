@@ -45,8 +45,20 @@
           <label>Description</label>
         </div>
       </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <input type="text" v-model="initialFee" required>
+          <label>InitialFee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" v-model="insuranceFee" required>
+          <label>InsuranceFee</label>
+        </div>
+      </div>
       <button type="submit" class="btn">Submit</button>
-      <router-link to="/apManagement" class="btn grey">Cancel</router-link>
+        <router-link to="/apManagement" class="btn grey">Cancel</router-link>
     </form>
   </div>
   </div>
@@ -63,7 +75,9 @@ export default {
       owner: null,
       price: null,
       tyAP: null,
-      description: null
+      description: null,
+      initialFee: null,
+      insuranceFee: null
     }
   },
   methods: {
@@ -75,7 +89,9 @@ export default {
         owner: this.owner,
         price: this.price,
         tyAP: this.tyAP,
-        description: this.description
+        description: this.description,
+        initialFee: this.initialFee,
+        insuranceFee: this.insuranceFee
       })
       .then(docRef => {
         console.log('Client added: ', docRef.id)
