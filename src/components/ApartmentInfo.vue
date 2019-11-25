@@ -1,12 +1,12 @@
 <template>
-  <div id="apartment-info" class="container">
+  <div id="apartment-info" class="container" >
     <br>
       <div class="row text-center">
         <div class="col s12 header light-blue lighten-4"><span><h4>{{name}}</h4></span></div>
       </div>
       <div class="row">
         <div class="col s4">
-          <img v-bind:src="image" height="400px" left="5px">
+          <img v-bind:src="image" height="400px" >
         </div>
         <div class="col s6">
           <span><h4>{{name}}</h4></span>
@@ -20,8 +20,23 @@
           <span><p>______________________________</p></span>
           <span><p>สรุปรวมค่าแรกเข้า: {{initialFee}} บาท</p></span>
         </div>
+        <div class="row">
+        <div class="col s10 text-center">
+          <span><h1 class="light-blue-text">____________________________________</h1></span>
+        </div>
       </div>
-    <button type="submit" v-on:click="getback" class="btn grey right">Back</button>
+      </div>
+      <div class="row">
+        <div class="col s10 text-center">
+          <img v-bind:src="'/static/home/map.png'">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s10">
+          <button type="submit" v-on:click="getback" class="btn grey right">Back</button>
+        </div>
+      </div>
+    
   </div>
 </template>
 
@@ -40,7 +55,8 @@
         tyAp: null,
         description: null,
         initialFee: null,
-        insuranceFee: null
+        insuranceFee: null,
+        facebook: null
         }
     },
     beforeRouteEnter (to, from, next) {
@@ -58,6 +74,7 @@
             vm.description=doc.data().description
             vm.initialFee=doc.data().initialFee
             vm.insuranceFee = doc.data().insuranceFee
+            vm.facebook = doc.data().facebook
           })
         })
       })
@@ -79,6 +96,7 @@
             this.description=doc.data().description
             this.initialFee=doc.data().initialFee
             this.insuranceFee = doc.data().insuranceFee
+            this.facebook = doc.data().facebook
           })
         })
       },
