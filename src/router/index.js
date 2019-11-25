@@ -11,12 +11,21 @@ import firebase from 'firebase'
 import Search from '@/components/Search'
 import ApartmentInfo from '@/components/ApartmentInfo'
 import ApManagement from '@/components/apManagement'
+import AddAP from '@/components/addAP'
 
 
 Vue.use(Router)
 
 let router = new Router({
   routes: [
+    {
+      path: '/addAP',
+      name: 'addAP',
+      component: AddAP,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: '/apManagement',
       name: 'apManagement',
@@ -120,7 +129,7 @@ router.beforeEach((to, from, next) => {
     if (firebase.auth().currentUser) {
       // Go to login
       next({
-        path: '/', 
+        path: '/',
         query: {
           redirect: to.fullPath
         }
