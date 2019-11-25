@@ -5,12 +5,13 @@
       <form v-on:submit="getfilteredData">
         <div class="form-row">
           <div class="col-12">
+            
             <input type="text" class="form-control" placeholder="Enter key word  ..." v-model="search" v-on:keyup="getfilteredData">
           </div>
         </div>
       </form>
       <!-- check boxes -->
-      
+
   </div>
   <!-- end of checkboxes
   <div class="card-columns">

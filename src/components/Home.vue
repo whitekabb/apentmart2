@@ -1,7 +1,7 @@
 <template>
   <div  id="home" class="font-kanit">
     <div>
-      <img class="responsive-img" v-bind:src="'/static/home/main.jpg'" >
+      <img class="responsive-img" v-bind:src="'./static/home/main.jpg'" >
     </div>
 
     <div class="rec-home-2">
