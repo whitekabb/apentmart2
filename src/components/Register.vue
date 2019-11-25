@@ -17,6 +17,11 @@
                                 <label for="password" class="black-text">Password</label>
                             </div>
                             <div class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input type="password" id="cpassword" v-model="cpassword">
+                                <label for="password" class="black-text">Confirm password</label>
+                            </div>
+                            <div class="input-field">
                                 <i class="material-icons prefix">assignment_ind</i>
                                 <input type="text" id="name" v-model="name">
                                 <label for="name" class="black-text">Name</label>
@@ -34,6 +39,13 @@
                             </div>
                             <button v-on:click="register" class="btn btn-large grey lighten-4 black-text" type="submit">Register</button>
                         </form>
+                        <p v-if="errors.length">
+                          <b>Please correct the following error(s):</b>
+                          <ul>
+                            <li v-for="(error,index) in errors" v-bind:key="index">{{ error }}</li>
+                          </ul>
+                          <b>Try again.</b>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -49,51 +61,63 @@ export default {
 
     data: function() {
         return {
-            email:'',
-            password:'',
+            email:null,
+            password:null,
+            cpassword: null,
             name: null,
-            owner: false
+            owner: false,
+            errors: []
         }
     },
     methods: {
     register: function(e) {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          user => {
-            // console.log(user);
-            alert(`Account Created for ${user.user.email}`);
-            this.$router.go({ path: this.$router.path });
-          },
-          err => {
-            alert(err.message);
-          }
-        );
-      db.collection('user').add({
-        email: this.email,
-        name: this.name,
-        owner: this.owner
-      })
-      .catch(error => {
-        console.error('Error adding employee: ', error)
-      })
-      e.preventDefault();
-    },
-    // saveUser () {
-    //   db.collection('user').add({
-    //     email: this.email,
-    //     name: this.name,
-    //     owner: this.owner
-    //   })
-    //   .then(docRef => {
-    //     console.log('Client added: ', docRef.id)
-    //     this.$router.push('/dashboard')
-    //   })
-    //   .catch(error => {
-    //     console.error('Error adding employee: ', error)
-    //   })
-    // }
+      if (this.email && this.password && this.cpassword && this.password == this.cpassword && this.name ) {
+        
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(
+            user => {
+              // console.log(user);
+              alert(`Account Created for ${user.user.email}`);
+              this.$router.go({ path: this.$router.path });
+            },
+            err => {
+              alert(err.message);
+            }
+          );
+        db.collection('user').add({
+          email: this.email,
+          name: this.name,
+          owner: this.owner
+        })
+        .catch(error => {
+          console.error('Error adding employee: ', error)
+        })
+        e.preventDefault();
+
+      } else {
+        this.errors = [];
+
+        if (!this.email) {
+          this.errors.push('email required.');
+        }
+        if (!this.name) {
+          this.errors.push('name required.');
+        }
+        if (!this.password) {
+          this.errors.push('password required.');
+        }
+        if (!this.cpassword) {
+          this.errors.push('Confirm password required.');
+        }
+        if (!(this.password == this.cpassword)) {
+          this.errors.push("Those password didn't match");
+        }
+        e.preventDefault();
+      }
+    }
   }
-};
+}
+
 </script>
