@@ -157,13 +157,13 @@ export default{
 }
 
 .rec-home-4 {
-  height: 600px;
+  height: 500px;
   width: 100%;
   background: #F1F1F1;
 }
 
 .rec-home-7 {
-  height: 400px;
+  height: 300px;
   width: 100%;
   background: #FFFFFF;
 }
@@ -417,7 +417,7 @@ export default{
 .line-home-3 {
   position: absolute;
   width: 100%;
-  top: 1900px;
+  top: 1800px;
 
   border: 1.5px solid #707070;
 }
@@ -425,14 +425,14 @@ export default{
 .text-topic-how-to-home-2 {
   position: absolute;
   font-weight: bold;
-  top: 1930px;
+  top: 1805px;
   left: 900px;
   color: #58595B;
 }
 
 .logo-bangkok-bank {
   position: absolute;
-  top: 2000px;
+  top: 1850px;
   left: 625px;
   width: 140px;
   height: 48px;
@@ -441,7 +441,7 @@ export default{
 
 .logo-kasikorn-bank {
   position: absolute;
-  top: 2000px;
+  top: 1850px;
   left: 795px;
   width: 140px;
   height: 48px;
@@ -450,7 +450,7 @@ export default{
 
 .logo-krungsri-bank {
   position: absolute;
-  top: 2000px;
+  top: 1850px;
   left: 965px;
   width: 140px;
   height: 48px;
@@ -459,7 +459,7 @@ export default{
 
 .logo-krungthai-bank {
   position: absolute;
-  top: 2000px;
+  top: 1850px;
   left: 1135px;
   width: 140px;
   height: 48px;
@@ -468,7 +468,7 @@ export default{
 
 .logo-paypal {
   position: absolute;
-  top: 2070px;
+  top: 1920px;
   left: 795px;
   width: 140px;
   height: 48px;
@@ -477,7 +477,7 @@ export default{
 
 .logo-scb-bank {
   position: absolute;
-  top: 2070px;
+  top: 1920px;
   left: 965px;
   width: 140px;
   height: 48px;

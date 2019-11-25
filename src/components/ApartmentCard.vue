@@ -1,13 +1,14 @@
 <template>
-  <div class="card p-3">
-    <div class="text-center">
-      <img class="img-fluid" v-bind:src="item.image" width="300" alt="Card   image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.name | capitalize }} </h5>
-        <p>{{item.description}}</p>
-      </div>
+  <div class="card hoverable">
+    <div class="card-image">
+      <img v-bind:src="item.image" height="250px" alt="Card image cap">
     </div>
+      <div class="card-content">
+        <h5 class="card-title">{{ item.name | capitalize }} </h5>
+        <p class="text-left">{{item.description}}</p>
+      </div>
   </div>
+  
 </template>
 
 <script>

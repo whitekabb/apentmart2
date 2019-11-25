@@ -1,19 +1,27 @@
 <template>
   <div id="apartment-info" class="container">
-    <ul class="collection with-header">
-      <li class="collection-header"><h4>{{name}}</h4></li>
-      <!-- <li class="collection-item">Employee ID#: {{employee_id}}</li>
-      <li class="collection-item">Department: {{dept}}</li>
-      <li class="collection-item">Position: {{position}}</li> -->
-    </ul>
+    <br>
+      <div class="row text-center">
+        <div class="col s12 header light-blue lighten-4"><span><h4>{{name}}</h4></span></div>
+      </div>
+      <div class="row">
+        <div class="col s4">
+          <img v-bind:src="image" height="400px" left="5px">
+        </div>
+        <div class="col s6">
+          <span><h4>{{name}}</h4></span>
+          <span><h1> </h1></span>
+          <span><h5 class="light-blue-text">รายละเอียดหอพัก</h5></span>
+          <span><p>{{description}}</p></span>
+          <span><h1> </h1></span>
+          <span><h5 class="light-blue-text">รายละเอียดค่าแรกเข้า</h5></span>
+          <span><p>ค่ามัดจำล่วงหน้า : {{insuranceFee}} บาท</p></span>
+          <span><p>ค่าเช่ารายเดือน   : {{price}} บาท</p></span>
+          <span><p>______________________________</p></span>
+          <span><p>สรุปรวมค่าแรกเข้า: {{initialFee}} บาท</p></span>
+        </div>
+      </div>
     <button type="submit" v-on:click="getback" class="btn grey right">Back</button>
-    <!-- <button @click="deleteEmployee" class="btn red">Delete</button> -->
-<!-- 
-    <div class="fixed-action-btn">
-      <router-link v-bind:to="{ name: 'edit-employee', params: { employee_id: employee_id }}" class="btn-floating btn-large blue">
-        <i class="material-icons">edit</i>
-      </router-link>
-    </div> -->
   </div>
 </template>
 
@@ -29,7 +37,10 @@
         name: null,
         location: null,
         price: null,
-        tyAp: null
+        tyAp: null,
+        description: null,
+        initialFee: null,
+        insuranceFee: null
         }
     },
     beforeRouteEnter (to, from, next) {
@@ -44,6 +55,9 @@
             vm.location= doc.data().location
             vm.price= doc.data().price
             vm.tyAp= doc.data().tyAP
+            vm.description=doc.data().description
+            vm.initialFee=doc.data().initialFee
+            vm.insuranceFee = doc.data().insuranceFee
           })
         })
       })
@@ -61,7 +75,10 @@
             this.name= doc.data().name,
             this.location= doc.data().location,
             this.price= doc.data().price,
-            this.tyAp= doc.data().tyAP
+            this.tyAp= doc.data().tyAP,
+            this.description=doc.data().description
+            this.initialFee=doc.data().initialFee
+            this.insuranceFee = doc.data().insuranceFee
           })
         })
       },

@@ -97,7 +97,7 @@ let router = new Router({
       }
     },
     {
-      path: '/:ap_id',
+      path: '/ap/:ap_id',
       name: 'apartment-info',
       component: ApartmentInfo,
       meta: {
