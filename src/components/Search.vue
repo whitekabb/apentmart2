@@ -65,7 +65,8 @@ export default {
             name: doc.data().name,
             location: doc.data().location,
             price: doc.data().price,
-            tyAp: doc.data().tyAP
+            tyAp: doc.data().tyAP,
+            description: doc.data().description,
           }
           this.firebaseDB.push(data)
         })

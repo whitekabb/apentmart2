@@ -56,7 +56,7 @@
           })
           .then(docRef => {
             console.log('Client added: ', docRef.id)
-            this.$router.push('/')
+            this.$router.push('/dashboard')
           })
           .catch(error => {
             console.error('Error adding employee: ', error)

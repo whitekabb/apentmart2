@@ -4,6 +4,7 @@
       <img class="img-fluid" v-bind:src="item.image" width="300" alt="Card   image cap">
       <div class="card-body">
         <h5 class="card-title">{{ item.name | capitalize }} </h5>
+        <p>{{item.description}}</p>
       </div>
     </div>
   </div>

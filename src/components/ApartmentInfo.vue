@@ -1,12 +1,12 @@
 <template>
-  <div id="apartment-info">
+  <div id="apartment-info" class="container">
     <ul class="collection with-header">
       <li class="collection-header"><h4>{{name}}</h4></li>
       <!-- <li class="collection-item">Employee ID#: {{employee_id}}</li>
       <li class="collection-item">Department: {{dept}}</li>
       <li class="collection-item">Position: {{position}}</li> -->
     </ul>
-    <router-link to="/search" class="btn grey right">Back</router-link>
+    <button type="submit" v-on:click="getback" class="btn grey right">Back</button>
     <!-- <button @click="deleteEmployee" class="btn red">Delete</button> -->
 <!-- 
     <div class="fixed-action-btn">
@@ -64,6 +64,9 @@
             this.tyAp= doc.data().tyAP
           })
         })
+      },
+      getback: function () {
+        this.$router.go(-1)
       }
     }
   }
