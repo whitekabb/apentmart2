@@ -12,7 +12,9 @@
   </div>
    <div class="card-columns">
     <!-- iterate firebasedata -->
-    <apartment-card v-for="(item, index) in firebaseData" :key="index" :item="item"></apartment-card>
+    <div v-for="(item, index) in firebaseData" :key="index">
+    <router-link v-bind:to="{ name: 'apartment-info', params: { ap_id: item.ap_id }}"><apartment-card :item="item"></apartment-card></router-link>
+    </div>
    </div>
   </div>
 </template>
@@ -92,6 +94,7 @@ export default {
         querySnapshot.forEach((doc) => {
           const data = {
             id: doc.id,
+            ap_id: doc.data().ap_id,
             image: doc.data().image,
             name: doc.data().name,
             location: doc.data().location,

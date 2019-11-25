@@ -24,6 +24,7 @@
     data () {
       return {
         id: null,
+        ap_id: null,
         image: null,
         name: null,
         location: null,
@@ -32,11 +33,12 @@
         }
     },
     beforeRouteEnter (to, from, next) {
-      db.collection('test').where('id', '==', to.params.id).get().then((querySnapshot) => {
+      db.collection('test').where('ap_id', '==', to.params.ap_id).get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           console.log(doc)
           next(vm => {
             vm.id= doc.data().id
+            vm.ap_id= doc.data().ap_id
             vm.image= doc.data().image
             vm.name= doc.data().name
             vm.location= doc.data().location
@@ -51,9 +53,10 @@
     },
     methods: {
       fetchData () {
-        db.collection('test').where('id', '==', this.$route.params.id).get().then((querySnapshot) => {
+        db.collection('test').where('ap_id', '==', this.$route.params.ap_id).get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             this.id= doc.data().id,
+            this.ap_id= doc.data().ap_id,
             this.image= doc.data().image,
             this.name= doc.data().name,
             this.location= doc.data().location,
