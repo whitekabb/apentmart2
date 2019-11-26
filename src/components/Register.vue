@@ -2,7 +2,7 @@
     <div class="font-kanit">
         <div class="container">
             <div class="row">
-                <div class="col s12 m8 offset-m2">
+                <div class="col s12">
                     <div class="login card-panel white black-text center">
                         <h3>Register</h3>
                         <form>
@@ -37,7 +37,7 @@
                                 <!-- <input type="password" id="owner" v-model="owner">
                                 <label for="password" class="black-text">Owner ()</label> -->
                             </div>
-                            <button v-on:click="register" class="btn btn-large grey lighten-4 black-text" type="submit">Register</button>
+                            <button v-on:click="register" class="btn btn-large grey lighten-4 black-text font-kanit" type="submit">Register</button>
                         </form>
                         <br>
                         <p v-if="errors.length" class="error-text">

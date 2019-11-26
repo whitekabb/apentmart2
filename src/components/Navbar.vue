@@ -13,7 +13,7 @@
                     <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
                     <li v-if="isLoggedIn"><router-link v-bind:to="{ name: 'profile', params: { email: currentUser }}">Profile</router-link></li>
-                    <li v-if="isLoggedIn"><button v-on:click="logout" class="btn grey">Log out</button></li>
+                    <li v-if="isLoggedIn"><button v-on:click="logout" class="btn grey font-kanit">Log out</button></li>
                 </ul>
             </div>
         </div>
