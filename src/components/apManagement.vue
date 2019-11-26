@@ -77,7 +77,7 @@ export default {
         })
         
       },finddata: function() {
-        db.collection('Apartment').where('email', '==', this.email).get().then((querySnapshot) => {
+        db.collection('Apartment').where('email', '==', this.$route.params.email).get().then((querySnapshot) => {
         this.loading = false
         querySnapshot.forEach((doc) => {
           const data = {
