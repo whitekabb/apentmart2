@@ -7,7 +7,7 @@
                 </a>
                 <ul class="right">
                     <li v-if="isLoggedIn"><span class="email bold white-text">Hello {{name}}</span></li>
-                    <li v-if="isLoggedIn&&owner"><a href="#/apManagement">Manage Apartment</a></li>
+                    <li v-if="isLoggedIn&&owner"><router-link v-bind:to="{ name: 'apManagement', params: { email: currentUser }}">Manage Apartment</router-link></li>
                     <li><a href="#/search"><i class="material-icons left">search</i>Search</a></li>
                     <li ><router-link to="/">Home</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>

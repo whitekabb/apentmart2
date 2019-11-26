@@ -21,7 +21,7 @@ Vue.use(Router)
 let router = new Router({
   routes: [
     {
-      path: '/addAP',
+      path: '/addAP/:email',
       name: 'addAP',
       component: AddAP,
       meta: {
@@ -29,7 +29,7 @@ let router = new Router({
       }
     },
     {
-      path: '/apManagement',
+      path: '/apManagement/:email',
       name: 'apManagement',
       component: ApManagement,
       meta: {
