@@ -1,5 +1,5 @@
 <template>
-  <div class="card hoverable">
+  <div class="card hoverable font-kanit">
     <div class="card-image">
       <img v-bind:src="item.image" height="250px" alt="Card image cap">
     </div>
@@ -35,3 +35,9 @@ export default {
 
 };
 </script>
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+</style>

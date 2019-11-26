@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="font-kanit">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">
@@ -18,6 +18,11 @@
                             </div>
                             <button v-on:click="login" class="btn btn-large grey lighten-4 black-text">Login</button>
                         </form>
+                        <br>
+                        <a href="#/register">Don't have an account? Register here</a>
+                        <br>
+                        <rounter-link v-on:click="googleSignIn()"><img src="/static/google-authen.png" class="google-authen"></rounter-link>
+                        
                     </div>
                 </div>
             </div>
@@ -46,7 +51,30 @@ export default {
           }
         );
       e.preventDefault();
-    }
+    },
+    googleSignIn () {
+        this.provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(this.provider).then(result => {
+          // store the user ore wathever
+          this.$router.go({ path: this.$router.path });
+        }).catch(e => {
+          this.$snotify.error(e.message)
+          console.log(e)
+        })
+      }
   }
 };
 </script>
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+.google-authen {
+  width: 307px;
+  height: 67px;
+  left: 200px;
+
+  /* background: url(google-authen.png); */
+}
+</style>

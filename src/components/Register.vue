@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="font-kanit">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">
@@ -39,13 +39,15 @@
                             </div>
                             <button v-on:click="register" class="btn btn-large grey lighten-4 black-text" type="submit">Register</button>
                         </form>
-                        <p v-if="errors.length">
+                        <br>
+                        <p v-if="errors.length" class="error-text">
                           <b>Please correct the following error(s):</b>
                           <ul>
                             <li v-for="(error,index) in errors" v-bind:key="index">{{ error }}</li>
                           </ul>
                           <b>Try again.</b>
                         </p>
+                        <a href="#/login">Already have an account? Click here</a>
                     </div>
                 </div>
             </div>
@@ -121,3 +123,12 @@ export default {
 }
 
 </script>
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+.error-text {
+  color: red;
+}
+</style>

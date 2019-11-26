@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="nav-wrapper blue">
+        <div class="nav-wrapper blue font-kanit">
             <div class="container">
                 <a href="#/">
                  <img :width="40" v-bind:src="'/static/favicon.png'">
@@ -12,6 +12,7 @@
                     <li ><router-link to="/">Home</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
                     <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
+                    <li v-if="isLoggedIn"><router-link v-bind:to="{ name: 'profile', params: { email: currentUser }}">Profile</router-link></li>
                     <li v-if="isLoggedIn"><button v-on:click="logout" class="btn grey">Log out</button></li>
                 </ul>
             </div>
@@ -62,5 +63,8 @@ export default {
 <style scoped>
 .email {
   padding-right: 10px;
+}
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
 }
 </style>

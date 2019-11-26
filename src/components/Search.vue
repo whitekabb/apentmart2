@@ -1,11 +1,11 @@
 <template>
-  <div class="container fluid">
+  <div class="container fluid font-kanit">
     <div class="search-wrapper">
     <!-- the search bar form -->
       <form v-on:submit="getfilteredData">
         <div class="form-row">
           <div class="col-12">
-            <input type="text" class="form-control" placeholder="Enter key word  ..." v-model="search" v-on:keyup="getfilteredData">
+            <input type="text" class="form-control font-kanit" placeholder="Enter key word  ..." v-model="search" v-on:keyup="getfilteredData">
           </div>
         </div>
       </form>
@@ -79,3 +79,9 @@ export default {
   }
 };
 </script>
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+</style>

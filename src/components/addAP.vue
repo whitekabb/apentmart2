@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-kanit">
     <h3>Add AP</h3>
     <div class="row">
     <form @submit.prevent="saveEmployee" class="col s12">
@@ -104,3 +104,10 @@ export default {
   }
 }
 </script>
+
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+</style>

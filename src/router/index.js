@@ -12,6 +12,8 @@ import Search from '@/components/Search'
 import ApartmentInfo from '@/components/ApartmentInfo'
 import ApManagement from '@/components/apManagement'
 import AddAP from '@/components/addAP'
+import Profile from '@/components/Profile'
+import EditProfile from '@/components/EditProfile'
 
 
 Vue.use(Router)
@@ -102,6 +104,22 @@ let router = new Router({
       component: ApartmentInfo,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/profile/:email',
+      name: 'profile',
+      component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/editprofile/:email',
+      name: 'edit-profile',
+      component: EditProfile,
+      meta: {
+        requiresAuth: true
       }
     }
   ]

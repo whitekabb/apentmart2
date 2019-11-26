@@ -1,5 +1,5 @@
 <template>
-  <div id="apartment-info" class="container" >
+  <div id="apartment-info" class="container font-kanit" >
     <br>
       <div class="row text-center">
         <div class="col s12 header light-blue lighten-4"><span><h4>{{name}}</h4></span></div>
@@ -107,3 +107,10 @@
   }
 
 </script>
+
+
+<style >
+.font-kanit {
+  font-family: 'Kanit', sans-serif;
+}
+</style>
