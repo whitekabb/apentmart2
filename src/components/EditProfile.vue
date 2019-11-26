@@ -1,6 +1,6 @@
 <template>
   <div id="new-employee" class="container">
-    <h3>Edit Employee</h3>
+    <h3>Edit  Profile</h3>
     <div class="row">
     <form @submit.prevent="updateEmployee" class="col s12">
       <div class="row">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <button type="submit" class="btn">Submit</button>
-      <router-link to="/dashboard" class="btn grey">Cancel</router-link>
+      <router-link v-bind:to="{ name: 'profile', params: { email: email }}" class="btn grey">Cancel</router-link>
     </form>
   </div>
   </div>
@@ -26,7 +26,7 @@
 <script>
   import db from './firebaseInit'
   export default {
-    name: 'edit-employee',
+    name: 'edit-profile',
     data () {
       return {
         email: null,
