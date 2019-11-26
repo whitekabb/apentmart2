@@ -10,7 +10,7 @@
 
         <div class="card light-blue lighten-4 col s12 m4 l8 add-height">
           <div class="btn-padding center">
-              <router-link to="/" class="btn-floating btn-large"><i class="material-icons">add</i></router-link>
+              <router-link to="/addAP" class="btn-floating btn-large"><i class="material-icons">add</i></router-link>
           </div>
         </div>
           <!-- <router-link to="/" class="btn-floating container"><i class="material-icons">add</i></router-link> -->
